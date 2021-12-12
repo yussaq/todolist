@@ -58,3 +58,54 @@ export PATH=$PATH:$GOBIN
 
 ## Test your Go installation
 Create and run the hello.go application described here: https://golang.org/doc/install#testing to check if your Go installation is working.
+
+[![Build Status](https://travis-ci.com/skycoin/skywire.svg?branch=master)](https://travis-ci.com/skycoin/skywire)
+
+# Skywire
+
+- [Skywire](#skywire)
+    - [Build](#build)
+    - [Configure Skywire](#configure-skywire)
+        - [Expose hypervisorUI](#expose-hypervisorui)
+        - [Add remote hypervisor](#add-remote-hypervisor)
+    - [Run `skywire-visor`](#run-skywire-visor)
+        - [Using the Skywire VPN](#using-the-skywire-vpn)
+    - [Creating a GitHub release](#creating-a-github-release)
+        - [How to create a GitHub release](#how-to-create-a-github-release)
+
+
+## Build
+```bash
+# Clone.
+$ git clone https://github.com/skycoin/skywire.git
+$ cd skywire
+
+# Build and Install
+$ make build; make install
+```
+
+## Configure Skywire
+### Expose hypervisorUI
+In order to expose the hypervisor UI, generate a config file with `--is-hypervisor` or `-i` flag:
+
+```bash
+$ skywire-cli config gen -i
+```
+### Add remote hypervisor
+
+Every visor can be controlled by one or more hypervisors. To allow a hypervisor to access a visor, the PubKey of the
+hypervisor needs to be specified in the configuration file. You can add a remote hypervisor to the config with:
+
+```bash
+$ skywire-cli config update --hypervisor-pks <public-key>
+```
+## Run `skywire-visor`
+
+`skywire-visor` hosts apps and is an applications gateway to the Skywire network.
+
+`skywire-visor` requires a valid configuration to be provided. If you want to run a VPN client locally, run the visor
+as `sudo`.
+
+```bash
+$ sudo skywire-visor -c skywire-config.json
+```

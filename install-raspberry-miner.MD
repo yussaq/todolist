@@ -57,23 +57,11 @@ export PATH=$PATH:$GOBIN
 ```
 
 ## Test your Go installation
-Create and run the hello.go application described here: https://golang.org/doc/install#testing to check if your Go installation is working.
-
-[![Build Status](https://travis-ci.com/skycoin/skywire.svg?branch=master)](https://travis-ci.com/skycoin/skywire)
+```sh
+go version
+```
 
 # Skywire
-
-- [Skywire](#skywire)
-    - [Build](#build)
-    - [Configure Skywire](#configure-skywire)
-        - [Expose hypervisorUI](#expose-hypervisorui)
-        - [Add remote hypervisor](#add-remote-hypervisor)
-    - [Run `skywire-visor`](#run-skywire-visor)
-        - [Using the Skywire VPN](#using-the-skywire-vpn)
-    - [Creating a GitHub release](#creating-a-github-release)
-        - [How to create a GitHub release](#how-to-create-a-github-release)
-
-
 ## Build
 ```bash
 # Clone.
